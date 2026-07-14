@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Những Kỷ Niệm - Happy Birthday Đỗ Anh Hoàng ❤️</title>
+
+    <link rel="stylesheet" href="css/memories.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- ================= BACKGROUND ================= -->
+
+    <canvas id="starCanvas"></canvas>
+
+    <div id="heart-container"></div>
+
+    <div class="overlay"></div>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <h1>Những Kỷ Niệm</h1>
+
+        <h2>Đỗ Anh Hoàng ❤️</h2>
+
+        <p>
+            Mỗi bức ảnh đều lưu giữ một khoảnh khắc,
+            mỗi khoảnh khắc đều là một phần thanh xuân của chúng ta.
+        </p>
+
+    </header>
+
+    <!-- ================= MEMORIES ================= -->
+
+    <main class="memories-container">
+
+        <div class="memory-card">
+
+            <div class="memory-image">
+
+                <img src="images/anh1.jpg" alt="Kỷ niệm 1">
+
+            </div>
+
+            <div class="memory-content">
+
+                <h3>Lần đầu gặp nhau ❤️</h3>
+
+                <p>
+                    Từ khoảnh khắc ấy, em biết rằng cuộc sống của mình sẽ
+                    có thêm một người thật đặc biệt.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="memory-card">
+
+            <div class="memory-image">
+
+                <img src="images/anh5.jpg" alt="Kỷ niệm 2">
+
+            </div>
+
+            <div class="memory-content">
+
+                <h3>Những chuyến đi</h3>
+
+                <p>
+                    Mỗi nơi chúng ta cùng đặt chân đến đều trở thành
+                    một kỷ niệm không thể nào quên.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="memory-card">
+
+            <div class="memory-image">
+
+                <img src="images/anh9.jpg" alt="Kỷ niệm 3">
+
+            </div>
+
+            <div class="memory-content">
+
+                <h3>Những nụ cười</h3>
+
+                <p>
+                    Điều em yêu nhất chính là được nhìn thấy anh cười,
+                    vì nụ cười ấy luôn làm em hạnh phúc.
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- ================= BUTTON ================= -->
+
+    <section class="next-section">
+
+        <button id="nextPage">
+
+            Đọc Lá Thư ❤️
+
+        </button>
+
+    </section>
+
+    <!-- ================= MUSIC ================= -->
+
+    <audio id="bgMusic">
+
+        <source src="music/birthday.mp3" type="audio/mpeg">
+
+    </audio>
+
+    <!-- ================= SCRIPT ================= -->
+
+    <script src="js/particles.js"></script>
+
+    <script src="js/hearts.js"></script>
+    <script src="js/memories.js"></script>
+    <script src="js/music.js"></script>
+
+    <script>
+
+        const nextBtn = document.getElementById("nextPage");
+
+        nextBtn.addEventListener("click", () => {
+
+            document.body.classList.add("fade-out");
+
+            setTimeout(() => {
+
+                window.location.href = "letter.html";
+
+            }, 700);
+
+        });
+
+    </script>
+
+</body>
+
+</html>

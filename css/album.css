@@ -1,0 +1,733 @@
+/* ==========================================================
+   HAPPY BIRTHDAY - ALBUM
+   album.css
+========================================================== */
+
+/* =============== RESET =============== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    font-family: "Poppins", sans-serif;
+
+    background: #02040d;
+
+    color: white;
+
+    overflow-x: hidden;
+
+    min-height: 100vh;
+
+}
+
+/* =============== STAR CANVAS =============== */
+
+#starCanvas {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    z-index: -5;
+
+}
+
+/* ================= HEART CONTAINER ================= */
+
+#heart-container {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 2;
+
+}
+
+/* ================= FLOATING HEART ================= */
+
+.floating-heart {
+
+    position: absolute;
+
+    bottom: -80px;
+
+    user-select: none;
+
+    pointer-events: none;
+
+    will-change: transform, opacity;
+
+    animation: floatHeart linear forwards;
+
+    filter:
+
+        drop-shadow(0 0 8px rgba(255, 105, 180, .8)) drop-shadow(0 0 18px rgba(255, 20, 147, .6));
+
+}
+
+/* =============== OVERLAY =============== */
+
+.overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -4;
+
+    pointer-events: none;
+
+    background:
+
+        linear-gradient(rgba(0, 0, 0, .25),
+
+            rgba(0, 0, 0, .6));
+
+}
+
+/* =============== HEADER =============== */
+
+header {
+
+    text-align: center;
+
+    padding: 70px 20px 40px;
+
+}
+
+header h1 {
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 82px;
+
+    color: white;
+
+    text-shadow:
+
+        0 0 15px white,
+
+        0 0 35px hotpink,
+
+        0 0 80px deeppink;
+
+}
+
+header h2 {
+
+    margin-top: 10px;
+
+    font-size: 38px;
+
+    color: #ffd7ef;
+
+}
+
+header p {
+
+    margin-top: 20px;
+
+    font-size: 20px;
+
+    color: #ececec;
+
+}
+
+/*==============================
+    SLIDESHOW
+==============================*/
+
+.slideshow {
+
+    position: relative;
+
+    width: min(1100px, 95%);
+
+    height: 650px;
+
+    margin: 40px auto;
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    background: #111;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    box-shadow:
+
+        0 20px 60px rgba(0, 0, 0, .45);
+
+}
+
+.slide {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    opacity: 0;
+
+    transition: opacity 1.2s ease;
+
+}
+
+.slide.active {
+
+    opacity: 1;
+
+}
+
+.slide img {
+
+    max-width: 100%;
+
+    max-height: 100%;
+
+    width: auto;
+
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 20px;
+
+    animation: kenBurns 8s ease-in-out infinite alternate;
+
+}
+
+@keyframes kenBurns {
+
+    0% {
+
+        transform:
+
+            scale(.95);
+
+    }
+
+    50% {
+
+        transform:
+
+            scale(1);
+
+    }
+
+    100% {
+
+        transform:
+
+            scale(1.05);
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .slideshow {
+
+        height: 420px;
+
+    }
+
+}
+
+@media(max-width:480px) {
+
+    .slideshow {
+
+        height: 300px;
+
+    }
+
+}
+
+
+/* =============== CARD =============== */
+
+.photo {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    background:
+
+        rgba(255, 255, 255, .08);
+
+    backdrop-filter: blur(14px);
+
+    border:
+
+        1px solid rgba(255, 255, 255, .18);
+
+    box-shadow:
+
+        0 15px 40px rgba(0, 0, 0, .35),
+
+        0 0 20px rgba(255, 105, 180, .15);
+
+    transform-style: preserve-3d;
+
+    transition:
+
+        transform .5s,
+
+        box-shadow .5s;
+
+}
+
+/* Hover 3D */
+
+.photo:hover {
+
+    transform:
+
+        perspective(1000px) rotateX(6deg) rotateY(-6deg) translateY(-10px) scale(1.03);
+
+    box-shadow:
+
+        0 25px 55px rgba(255, 20, 147, .35),
+
+        0 0 40px rgba(255, 255, 255, .15);
+
+}
+
+/* =============== IMAGE =============== */
+
+.photo img {
+
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 4/5;
+
+    object-fit: cover;
+
+    transition: transform 8s ease;
+
+    animation:
+
+        kenburns 18s ease-in-out infinite alternate;
+
+}
+
+/* Hover Zoom */
+
+.photo:hover img {
+
+    transform: scale(1.12);
+
+}
+
+/* Glow */
+
+.photo::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(transparent,
+
+            rgba(255, 255, 255, .08),
+
+            transparent);
+
+    opacity: 0;
+
+    transition: .4s;
+
+}
+
+.photo:hover::after {
+
+    opacity: 1;
+
+}
+
+/* =============== BUTTON =============== */
+
+.next {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin: 50px 0 80px;
+
+}
+
+#nextPage {
+
+    padding: 18px 50px;
+
+    border: none;
+
+    border-radius: 60px;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    color: white;
+
+    background:
+
+        linear-gradient(135deg,
+
+            #ff4da6,
+
+            #ff80d8,
+
+            #ffc2e7);
+
+    box-shadow:
+
+        0 0 25px hotpink,
+
+        0 0 60px rgba(255, 105, 180, .4);
+
+    transition: .35s;
+
+}
+
+#nextPage:hover {
+
+    transform:
+
+        translateY(-6px) scale(1.05);
+
+}
+
+/* =============== LIGHTBOX =============== */
+
+#lightbox {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: rgba(0, 0, 0, .92);
+
+    z-index: 9999;
+
+}
+
+#lightbox img {
+
+    width: min(90%, 900px);
+
+    max-height: 90vh;
+
+    border-radius: 20px;
+
+    box-shadow:
+
+        0 0 40px white;
+
+}
+
+#close {
+
+    position: absolute;
+
+    top: 30px;
+
+    right: 40px;
+
+    font-size: 50px;
+
+    color: white;
+
+    cursor: pointer;
+
+}
+
+/* =============== ANIMATION =============== */
+
+@keyframes kenburns {
+
+    0% {
+
+        transform:
+
+            scale(1) translate(0, 0);
+
+    }
+
+    50% {
+
+        transform:
+
+            scale(1.08) translate(-10px, -8px);
+
+    }
+
+    100% {
+
+        transform:
+
+            scale(1.15) translate(10px, 8px);
+
+    }
+
+}
+
+.gallery .photo {
+
+    opacity: 0;
+
+    transform: translateY(40px);
+
+    animation: fadeUp .9s ease forwards;
+
+}
+
+.gallery .photo:nth-child(1) {
+    animation-delay: .1s;
+}
+
+.gallery .photo:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.gallery .photo:nth-child(3) {
+    animation-delay: .3s;
+}
+
+.gallery .photo:nth-child(4) {
+    animation-delay: .4s;
+}
+
+.gallery .photo:nth-child(5) {
+    animation-delay: .5s;
+}
+
+.gallery .photo:nth-child(6) {
+    animation-delay: .6s;
+}
+
+.gallery .photo:nth-child(7) {
+    animation-delay: .7s;
+}
+
+.gallery .photo:nth-child(8) {
+    animation-delay: .8s;
+}
+
+.gallery .photo:nth-child(9) {
+    animation-delay: .9s;
+}
+
+.gallery .photo:nth-child(10) {
+    animation-delay: 1s;
+}
+
+.gallery .photo:nth-child(11) {
+    animation-delay: 1.1s;
+}
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+
+            translateY(40px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+
+            translateY(0);
+
+    }
+
+}
+
+/* =============== RESPONSIVE =============== */
+
+@media(max-width:992px) {
+
+    header h1 {
+
+        font-size: 68px;
+
+    }
+
+    header h2 {
+
+        font-size: 32px;
+
+    }
+
+    .gallery {
+
+        grid-template-columns:
+
+            repeat(2, 1fr);
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    header {
+
+        padding-top: 50px;
+
+    }
+
+    header h1 {
+
+        font-size: 54px;
+
+    }
+
+    header h2 {
+
+        font-size: 26px;
+
+    }
+
+    header p {
+
+        font-size: 17px;
+
+    }
+
+    .gallery {
+
+        gap: 18px;
+
+    }
+
+}
+
+@media(max-width:480px) {
+
+    .gallery {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    header h1 {
+
+        font-size: 44px;
+
+    }
+
+    header h2 {
+
+        font-size: 22px;
+
+    }
+
+    #nextPage {
+
+        width: 90%;
+
+        font-size: 18px;
+
+    }
+
+}
+
+@keyframes floatHeart {
+
+    0% {
+
+        transform:
+
+            translateY(0) translateX(0) rotate(0deg) scale(.4);
+
+        opacity: 0;
+
+    }
+
+    10% {
+
+        opacity: 1;
+
+    }
+
+    35% {
+
+        transform:
+
+            translateY(-30vh) translateX(calc(var(--drift)/3)) rotate(calc(var(--rotate)/2)) scale(.8);
+
+    }
+
+    70% {
+
+        transform:
+
+            translateY(-70vh) translateX(calc(var(--drift)*0.8)) rotate(var(--rotate)) scale(1);
+
+    }
+
+    100% {
+
+        transform:
+
+            translateY(-120vh) translateX(var(--drift)) rotate(calc(var(--rotate)*2)) scale(1.3);
+
+        opacity: 0;
+
+    }
+
+}

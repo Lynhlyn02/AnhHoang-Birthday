@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday Đỗ Anh Hoàng ❤️</title>
+
+    <link rel="stylesheet" href="css/final.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- ================= BACKGROUND ================= -->
+
+    <canvas id="starCanvas"></canvas>
+
+    <!-- Canvas pháo hoa -->
+    <canvas id="fireworksCanvas"></canvas>
+
+    <!-- Tim bay -->
+    <div id="heart-container"></div>
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="final-container">
+
+        <div class="glass-box">
+
+            <h1 class="title">
+                Happy Birthday
+            </h1>
+
+            <h2 class="name">
+                Đỗ Anh Hoàng ❤️
+            </h2>
+
+            <p class="message">
+                Hành trình nhỏ này khép lại,
+                nhưng tình yêu của em dành cho anh
+                sẽ luôn tiếp tục.
+
+                <br><br>
+
+                Cảm ơn anh đã xuất hiện trong cuộc đời em,
+                đã yêu thương, che chở và luôn ở bên em.
+
+                <br><br>
+
+                Chúc anh tuổi mới thật nhiều sức khỏe,
+                thật nhiều niềm vui,
+                thành công trong mọi điều
+                và luôn mỉm cười thật hạnh phúc.
+
+                <br><br>
+
+                ❤️ Em yêu anh rất nhiều ❤️
+            </p>
+
+            <div class="signature">
+
+                — From Your Love —
+
+            </div>
+
+            <button id="replayBtn">
+
+                Xem Lại Hành Trình ❤️
+
+            </button>
+
+        </div>
+
+    </main>
+
+    <!-- ================= MUSIC ================= -->
+
+    <audio id="bgMusic">
+
+        <source src="music/birthday.mp3" type="audio/mpeg">
+
+    </audio>
+
+    <!-- ================= SCRIPT ================= -->
+
+    <script src="js/particles.js"></script>
+
+    <script src="js/hearts.js"></script>
+    <script src="js/music.js"></script>
+
+
+    <script>
+
+        const replay = document.getElementById("replayBtn");
+
+        replay.addEventListener("click", () => {
+
+            document.body.classList.add("fade-out");
+
+            setTimeout(() => {
+
+                window.location.href = "index.html";
+
+            }, 800);
+
+        });
+
+    </script>
+
+</body>
+
+</html>

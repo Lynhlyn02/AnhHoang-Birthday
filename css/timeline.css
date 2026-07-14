@@ -1,0 +1,1684 @@
+/* ==========================================================
+   HAPPY BIRTHDAY
+   timeline.css
+========================================================== */
+
+/*==============================
+    RESET
+==============================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    font-family: "Poppins", sans-serif;
+
+    background: #050816;
+
+    color: #fff;
+
+    overflow-x: hidden;
+
+    min-height: 100vh;
+
+    position: relative;
+
+}
+
+/*==============================
+    STAR BACKGROUND
+==============================*/
+
+#starCanvas {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    z-index: -5;
+
+}
+
+/*==============================
+    HEART CONTAINER
+==============================*/
+
+#heart-container {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 2;
+
+}
+
+.floating-heart {
+
+    position: absolute;
+
+    bottom: -80px;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    will-change: transform, opacity;
+
+    animation: floatHeart linear forwards;
+
+    filter:
+
+        drop-shadow(0 0 8px rgba(255, 105, 180, .8)) drop-shadow(0 0 20px rgba(255, 20, 147, .6));
+
+}
+
+/*==============================
+    OVERLAY
+==============================*/
+
+.overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -4;
+
+    pointer-events: none;
+
+    background:
+
+        radial-gradient(circle at top,
+
+            rgba(255, 105, 180, .18),
+
+            transparent 55%),
+
+        radial-gradient(circle at bottom,
+
+            rgba(120, 180, 255, .08),
+
+            transparent 60%),
+
+        linear-gradient(rgba(0, 0, 0, .12),
+
+            rgba(0, 0, 0, .75));
+
+}
+
+/*==============================
+    HEADER
+==============================*/
+
+header {
+
+    text-align: center;
+
+    padding: 70px 20px 40px;
+
+}
+
+header h1 {
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(60px, 7vw, 96px);
+
+    color: #fff;
+
+    text-shadow:
+
+        0 0 15px #fff,
+
+        0 0 35px hotpink,
+
+        0 0 70px deeppink;
+
+    animation: glowTitle 3s infinite alternate;
+
+}
+
+header h2 {
+
+    margin-top: 12px;
+
+    font-size: clamp(28px, 3vw, 42px);
+
+    color: #ffd6ee;
+
+}
+
+header p {
+
+    width: min(760px, 92%);
+
+    margin: 25px auto 0;
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    color: #ececec;
+
+}
+
+/*==============================
+    COUNTDOWN
+==============================*/
+
+.countdown-section {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    margin-bottom: 60px;
+
+}
+
+.countdown-card {
+
+    width: min(900px, 95%);
+
+    padding: 35px;
+
+    border-radius: 28px;
+
+    background: rgba(255, 255, 255, .08);
+
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, .15);
+
+    box-shadow:
+
+        0 20px 50px rgba(0, 0, 0, .35),
+
+        0 0 35px rgba(255, 105, 180, .12);
+
+    text-align: center;
+
+}
+
+.countdown-card h3 {
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 44px;
+
+    color: #ffb8df;
+
+    margin-bottom: 30px;
+
+    text-shadow:
+
+        0 0 15px rgba(255, 105, 180, .5);
+
+}
+
+.countdown {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+
+}
+
+.time-box {
+
+    width: 130px;
+
+    height: 130px;
+
+    border-radius: 24px;
+
+    background:
+
+        rgba(255, 255, 255, .08);
+
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, .12);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    transition: .35s;
+
+    box-shadow:
+
+        0 10px 30px rgba(0, 0, 0, .28);
+
+}
+
+.time-box:hover {
+
+    transform:
+
+        translateY(-8px) scale(1.05);
+
+    box-shadow:
+
+        0 20px 40px rgba(255, 20, 147, .35),
+
+        0 0 25px rgba(255, 255, 255, .18);
+
+}
+
+.time-box span {
+
+    font-size: 42px;
+
+    font-weight: 700;
+
+    color: #fff;
+
+    text-shadow:
+
+        0 0 10px hotpink;
+
+}
+
+.time-box small {
+
+    margin-top: 10px;
+
+    font-size: 16px;
+
+    color: #ffd6ec;
+
+    letter-spacing: 1px;
+
+}
+
+/*==============================
+    ANIMATION
+==============================*/
+
+@keyframes glowTitle {
+
+    from {
+
+        text-shadow:
+
+            0 0 10px #fff,
+
+            0 0 20px hotpink,
+
+            0 0 40px deeppink;
+
+    }
+
+    to {
+
+        text-shadow:
+
+            0 0 20px #fff,
+
+            0 0 45px hotpink,
+
+            0 0 90px deeppink;
+
+    }
+
+}
+
+@keyframes floatHeart {
+
+    0% {
+
+        transform:
+
+            translateY(0) translateX(0) rotate(0deg) scale(.5);
+
+        opacity: 0;
+
+    }
+
+    10% {
+
+        opacity: 1;
+
+    }
+
+    50% {
+
+        transform:
+
+            translateY(-45vh) translateX(calc(var(--drift)/2)) rotate(var(--rotate)) scale(.9);
+
+    }
+
+    100% {
+
+        transform:
+
+            translateY(-120vh) translateX(var(--drift)) rotate(calc(var(--rotate)*2)) scale(1.2);
+
+        opacity: 0;
+
+    }
+
+}
+
+/*==============================
+    RESPONSIVE
+==============================*/
+
+@media(max-width:992px) {
+
+    .countdown {
+
+        gap: 18px;
+
+    }
+
+    .time-box {
+
+        width: 110px;
+
+        height: 110px;
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    header {
+
+        padding-top: 50px;
+
+    }
+
+    header p {
+
+        font-size: 16px;
+
+    }
+
+    .countdown-card {
+
+        padding: 25px;
+
+    }
+
+    .countdown-card h3 {
+
+        font-size: 34px;
+
+    }
+
+    .time-box {
+
+        width: 90px;
+
+        height: 90px;
+
+    }
+
+    .time-box span {
+
+        font-size: 30px;
+
+    }
+
+}
+
+@media(max-width:480px) {
+
+    header h1 {
+
+        font-size: 48px;
+
+    }
+
+    header h2 {
+
+        font-size: 24px;
+
+    }
+
+    .countdown {
+
+        gap: 12px;
+
+    }
+
+    .time-box {
+
+        width: 75px;
+
+        height: 75px;
+
+        border-radius: 18px;
+
+    }
+
+    .time-box span {
+
+        font-size: 24px;
+
+    }
+
+    .time-box small {
+
+        font-size: 12px;
+
+    }
+
+}
+
+/*==========================================================
+    TIMELINE
+==========================================================*/
+
+.timeline {
+
+    position: relative;
+
+    width: min(1300px, 92%);
+
+    margin: 0 auto 120px;
+
+    padding: 30px 0;
+
+}
+
+/*==============================
+    LINE
+==============================*/
+
+.timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 0;
+
+    transform: translateX(-50%);
+
+    width: 6px;
+
+    height: 100%;
+
+    border-radius: 30px;
+
+    background:
+
+        linear-gradient(to bottom,
+
+            #ff8dc8,
+
+            #ff4fa3,
+
+            #7f5cff,
+
+            #63d6ff);
+
+    box-shadow:
+
+        0 0 20px hotpink,
+
+        0 0 40px deeppink,
+
+        0 0 70px rgba(255, 105, 180, .5);
+
+}
+
+/*==========================================================
+    ITEM
+==========================================================*/
+
+.timeline-item {
+
+    position: relative;
+
+    width: 50%;
+
+    display: flex;
+
+    margin: 80px 0;
+
+}
+
+.timeline-item.left {
+
+    justify-content: flex-end;
+
+    padding-right: 70px;
+
+}
+
+.timeline-item.right {
+
+    margin-left: 50%;
+
+    padding-left: 70px;
+
+}
+
+/*==========================================================
+    DOT
+==========================================================*/
+
+.timeline-dot {
+
+    position: absolute;
+
+    top: 120px;
+
+    width: 24px;
+
+    height: 24px;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    border: 4px solid hotpink;
+
+    box-shadow:
+
+        0 0 12px #fff,
+
+        0 0 25px hotpink,
+
+        0 0 45px deeppink;
+
+    animation: pulseDot 2s infinite;
+
+    z-index: 20;
+
+}
+
+.timeline-item.left .timeline-dot {
+
+    right: -12px;
+
+}
+
+.timeline-item.right .timeline-dot {
+
+    left: -12px;
+
+}
+
+/*==========================================================
+    CARD
+==========================================================*/
+
+.timeline-card {
+
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 30px;
+
+    background:
+
+        rgba(255, 255, 255, .08);
+
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, .15);
+
+    box-shadow:
+
+        0 25px 60px rgba(0, 0, 0, .35);
+
+    transition: .45s;
+
+    transform-style: preserve-3d;
+
+}
+
+/* Hover */
+
+.timeline-card:hover {
+
+    transform:
+
+        perspective(1200px) rotateY(6deg) rotateX(5deg) translateY(-10px) scale(1.03);
+
+    box-shadow:
+
+        0 35px 70px rgba(255, 20, 147, .35),
+
+        0 0 35px rgba(255, 255, 255, .15);
+
+}
+
+/*==========================================================
+    IMAGE
+==========================================================*/
+
+.timeline-image {
+
+    width: 100%;
+
+    height: 340px;
+
+    overflow: hidden;
+
+}
+
+.timeline-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    animation:
+
+        kenBurns 20s ease-in-out infinite alternate;
+
+    transition: transform .5s;
+
+}
+
+.timeline-card:hover img {
+
+    transform: scale(1.08);
+
+}
+
+/*==========================================================
+    CONTENT
+==========================================================*/
+
+.timeline-content {
+
+    padding: 28px;
+
+}
+
+.timeline-date {
+
+    display: inline-block;
+
+    padding: 8px 18px;
+
+    border-radius: 50px;
+
+    background:
+
+        rgba(255, 255, 255, .12);
+
+    color: #ffd6ee;
+
+    font-size: 15px;
+
+    margin-bottom: 18px;
+
+}
+
+.timeline-content h3 {
+
+    font-size: 30px;
+
+    color: #fff;
+
+    margin-bottom: 18px;
+
+}
+
+.timeline-content p {
+
+    color: #f3f3f3;
+
+    font-size: 17px;
+
+    line-height: 1.9;
+
+}
+
+/*==========================================================
+    KEN BURNS
+==========================================================*/
+
+@keyframes kenBurns {
+
+    0% {
+
+        transform:
+
+            scale(1) translate(0, 0);
+
+    }
+
+    50% {
+
+        transform:
+
+            scale(1.08) translate(-10px, -8px);
+
+    }
+
+    100% {
+
+        transform:
+
+            scale(1.15) translate(10px, 8px);
+
+    }
+
+}
+
+/*==========================================================
+    DOT
+==========================================================*/
+
+@keyframes pulseDot {
+
+    0% {
+
+        transform: scale(1);
+
+        box-shadow:
+
+            0 0 10px white,
+
+            0 0 20px hotpink;
+
+    }
+
+    50% {
+
+        transform: scale(1.35);
+
+        box-shadow:
+
+            0 0 20px white,
+
+            0 0 40px deeppink,
+
+            0 0 60px hotpink;
+
+    }
+
+    100% {
+
+        transform: scale(1);
+
+    }
+
+}
+
+/*==========================================================
+    RESPONSIVE
+==========================================================*/
+
+@media(max-width:992px) {
+
+    .timeline::before {
+
+        left: 35px;
+
+    }
+
+    .timeline-item {
+
+        width: 100%;
+
+        margin: 60px 0;
+
+        padding-left: 90px !important;
+
+        padding-right: 0 !important;
+
+    }
+
+    .timeline-item.right {
+
+        margin-left: 0;
+
+    }
+
+    .timeline-item.left {
+
+        justify-content: flex-start;
+
+    }
+
+    .timeline-item.left .timeline-dot,
+
+    .timeline-item.right .timeline-dot {
+
+        left: 23px;
+
+    }
+
+    .timeline-image {
+
+        height: 280px;
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .timeline-content {
+
+        padding: 22px;
+
+    }
+
+    .timeline-content h3 {
+
+        font-size: 24px;
+
+    }
+
+    .timeline-content p {
+
+        font-size: 16px;
+
+    }
+
+    .timeline-image {
+
+        height: 240px;
+
+    }
+
+}
+
+@media(max-width:480px) {
+
+    .timeline {
+
+        width: 95%;
+
+    }
+
+    .timeline-item {
+
+        padding-left: 70px !important;
+
+    }
+
+    .timeline::before {
+
+        left: 24px;
+
+    }
+
+    .timeline-item .timeline-dot {
+
+        left: 12px;
+
+        width: 20px;
+
+        height: 20px;
+
+    }
+
+    .timeline-image {
+
+        height: 210px;
+
+    }
+
+    .timeline-content {
+
+        padding: 18px;
+
+    }
+
+    .timeline-content h3 {
+
+        font-size: 21px;
+
+    }
+
+    .timeline-content p {
+
+        font-size: 15px;
+
+        line-height: 1.8;
+
+    }
+
+}
+
+/*==========================================================
+    NEXT BUTTON
+==========================================================*/
+
+.next-section {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin: 70px 0 90px;
+
+}
+
+#nextPage {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 18px 60px;
+
+    border: none;
+
+    border-radius: 60px;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    color: #fff;
+
+    letter-spacing: 1px;
+
+    background: linear-gradient(135deg,
+            #ff4da6,
+            #ff7fc9,
+            #ffc2e7);
+
+    box-shadow:
+        0 0 25px rgba(255, 20, 147, .45),
+        0 0 60px rgba(255, 105, 180, .35);
+
+    transition: .35s;
+
+}
+
+/* Shine */
+
+#nextPage::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -130%;
+
+    width: 60%;
+
+    height: 100%;
+
+    transform: skewX(-25deg);
+
+    background:
+
+        linear-gradient(transparent,
+
+            rgba(255, 255, 255, .8),
+
+            transparent);
+
+    transition: .8s;
+
+}
+
+#nextPage:hover::before {
+
+    left: 140%;
+
+}
+
+#nextPage:hover {
+
+    transform:
+        translateY(-8px) scale(1.06);
+
+    box-shadow:
+
+        0 0 35px hotpink,
+
+        0 0 70px rgba(255, 20, 147, .55);
+
+}
+
+#nextPage:active {
+
+    transform: scale(.96);
+
+}
+
+/*==========================================================
+    SCROLL REVEAL
+==========================================================*/
+
+.reveal {
+
+    opacity: 0;
+
+    transform:
+
+        translateY(70px);
+
+    transition:
+
+        opacity .9s ease,
+
+        transform .9s ease;
+
+}
+
+.reveal.active {
+
+    opacity: 1;
+
+    transform:
+
+        translateY(0);
+
+}
+
+/*==========================================================
+    FLOAT ANIMATION
+==========================================================*/
+
+.timeline-card {
+
+    animation:
+
+        floating 7s ease-in-out infinite;
+
+}
+
+.timeline-item:nth-child(even) .timeline-card {
+
+    animation-delay: 2s;
+
+}
+
+.timeline-item:nth-child(odd) .timeline-card {
+
+    animation-delay: 1s;
+
+}
+
+@keyframes floating {
+
+    0% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-10px);
+
+    }
+
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+}
+
+/*==========================================================
+    FADE OUT
+==========================================================*/
+
+.fade-out {
+
+    animation:
+
+        fadeOut .8s forwards;
+
+}
+
+@keyframes fadeOut {
+
+    to {
+
+        opacity: 0;
+
+        transform: scale(.97);
+
+        filter: blur(10px);
+
+    }
+
+}
+
+/*==========================================================
+    FADE IN HEADER
+==========================================================*/
+
+header {
+
+    animation:
+
+        fadeDown 1.2s ease;
+
+}
+
+@keyframes fadeDown {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+
+            translateY(-60px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+
+            translateY(0);
+
+    }
+
+}
+
+/*==========================================================
+    COUNTDOWN APPEAR
+==========================================================*/
+
+.countdown-card {
+
+    animation:
+
+        zoomFade 1.2s ease;
+
+}
+
+@keyframes zoomFade {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+
+            scale(.85);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+
+            scale(1);
+
+    }
+
+}
+
+/*==========================================================
+    CARD GLOW
+==========================================================*/
+
+.timeline-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 30px;
+
+    pointer-events: none;
+
+    background:
+
+        linear-gradient(135deg,
+
+            rgba(255, 255, 255, .18),
+
+            transparent 35%,
+
+            transparent 65%,
+
+            rgba(255, 255, 255, .08));
+
+    opacity: 0;
+
+    transition: .4s;
+
+}
+
+.timeline-card:hover::after {
+
+    opacity: 1;
+
+}
+
+/*==========================================================
+    RESPONSIVE
+==========================================================*/
+
+@media (max-width:1200px) {
+
+    .timeline {
+
+        width: 95%;
+
+    }
+
+    .timeline-image {
+
+        height: 300px;
+
+    }
+
+}
+
+@media (max-width:992px) {
+
+    .next-section {
+
+        margin-top: 50px;
+
+    }
+
+    #nextPage {
+
+        padding: 16px 48px;
+
+        font-size: 18px;
+
+    }
+
+}
+
+@media (max-width:768px) {
+
+    header {
+
+        padding: 50px 20px 30px;
+
+    }
+
+    header h1 {
+
+        font-size: 54px;
+
+    }
+
+    header h2 {
+
+        font-size: 26px;
+
+    }
+
+    header p {
+
+        font-size: 16px;
+
+        line-height: 1.8;
+
+    }
+
+    .countdown-card {
+
+        padding: 25px;
+
+    }
+
+    .timeline {
+
+        margin-bottom: 70px;
+
+    }
+
+    .timeline-card {
+
+        border-radius: 22px;
+
+    }
+
+    .timeline-image {
+
+        height: 230px;
+
+    }
+
+    #nextPage {
+
+        width: 85%;
+
+        max-width: 340px;
+
+    }
+
+}
+
+@media (max-width:480px) {
+
+    header h1 {
+
+        font-size: 42px;
+
+    }
+
+    header h2 {
+
+        font-size: 22px;
+
+    }
+
+    header p {
+
+        font-size: 15px;
+
+    }
+
+    .timeline-content {
+
+        padding: 16px;
+
+    }
+
+    .timeline-content h3 {
+
+        font-size: 20px;
+
+    }
+
+    .timeline-content p {
+
+        font-size: 14px;
+
+    }
+
+    .timeline-image {
+
+        height: 190px;
+
+    }
+
+    .countdown {
+
+        gap: 10px;
+
+    }
+
+    #nextPage {
+
+        width: 92%;
+
+        font-size: 17px;
+
+        padding: 16px 25px;
+
+    }
+
+}
+
+/*==========================================================
+    SMOOTH SCROLLBAR
+==========================================================*/
+
+::-webkit-scrollbar {
+
+    width: 10px;
+
+}
+
+::-webkit-scrollbar-track {
+
+    background: #08111f;
+
+}
+
+::-webkit-scrollbar-thumb {
+
+    background: linear-gradient(#ff4fa3,
+
+            #ff89d5);
+
+    border-radius: 20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: #ff69b4;
+
+}
+
+/* Timeline line progress */
+
+.timeline{
+
+    --line-progress:0%;
+
+}
+
+.timeline::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    transform:translateX(-50%);
+
+    width:6px;
+
+    height:var(--line-progress);
+
+    border-radius:30px;
+
+    background:white;
+
+    box-shadow:
+
+        0 0 20px white,
+
+        0 0 45px hotpink,
+
+        0 0 80px deeppink;
+
+    transition:.25s;
+
+}
+
+/* Active dot */
+
+.timeline-dot.active{
+
+    transform:scale(1.4);
+
+    background:white;
+
+    box-shadow:
+
+        0 0 18px white,
+
+        0 0 35px hotpink,
+
+        0 0 70px deeppink;
+
+}
+
+/* Active card */
+
+.timeline-card.show{
+
+    animation:cardShow .8s ease;
+
+}
+
+@keyframes cardShow{
+
+    from{
+
+        transform:translateY(40px);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:translateY(0);
+
+        opacity:1;
+
+    }
+
+}
+
+/* Glow */
+
+.timeline-card.glow{
+
+    box-shadow:
+
+        0 0 35px rgba(255,105,180,.5),
+
+        0 0 70px rgba(255,20,147,.35);
+
+}
+
+/* Sparkle */
+
+.sparkle{
+
+    position:fixed;
+
+    width:4px;
+
+    height:4px;
+
+    border-radius:50%;
+
+    background:white;
+
+    pointer-events:none;
+
+    box-shadow:
+
+        0 0 10px white,
+
+        0 0 25px hotpink;
+
+    animation:sparkleFloat linear forwards;
+
+    z-index:999;
+
+}
+
+@keyframes sparkleFloat{
+
+    from{
+
+        opacity:1;
+
+        transform:translateY(0) scale(.5);
+
+    }
+
+    to{
+
+        opacity:0;
+
+        transform:translateY(-120px) scale(2);
+
+    }
+
+}
+
+/* Button pulse */
+
+.pulse{
+
+    animation:buttonPulse 1.2s;
+
+}
+
+@keyframes buttonPulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.08);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* Pause animation */
+
+.pause-animation *{
+
+    animation-play-state:paused !important;
+
+}

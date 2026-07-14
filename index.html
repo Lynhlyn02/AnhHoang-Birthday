@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday Đỗ Anh Hoàng ❤️</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- ================= BACKGROUND ================= -->
+
+    <!-- ================= BACKGROUND ================= -->
+
+    <canvas id="starCanvas"></canvas>
+
+    <canvas id="fireworkCanvas"></canvas>
+
+    <div id="heart-container"></div>
+
+    <div id="petal-container"></div>
+
+    <div class="overlay"></div>
+
+    <!-- ================= LOADING ================= -->
+
+    <section id="loading-screen">
+
+        <div class="loading-content">
+
+            <h1 class="loading-title">
+
+                Happy Birthday
+
+            </h1>
+
+            <h2 class="loading-name">
+
+                Đỗ Anh Hoàng ❤️
+
+            </h2>
+
+            <div class="loading-bar">
+
+                <div class="progress"></div>
+
+            </div>
+
+            <p id="loading-text">
+
+                Đang chuẩn bị điều bất ngờ...
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ================= MAIN ================= -->
+
+    <main id="main-content">
+
+        <section class="hero">
+
+            <h1>
+
+                Happy Birthday
+
+            </h1>
+
+            <h2>
+
+                Đỗ Anh Hoàng ❤️
+
+            </h2>
+
+            <p>
+
+                Có một hành trình nhỏ được chuẩn bị riêng dành cho anh.
+
+                Hãy nhấn nút bên dưới để bắt đầu khám phá nhé.
+
+            </p>
+
+            <button id="startButton">
+
+                Bắt đầu hành trình ❤️
+
+            </button>
+
+        </section>
+
+    </main>
+
+    <!-- ================= MUSIC ================= -->
+
+    <audio id="bgMusic">
+
+        <source src="music/birthday.mp3" type="audio/mpeg">
+
+    </audio>
+
+    <!-- ================= SCRIPTS ================= -->
+
+    <script src="js/particles.js"></script>
+
+    <script src="js/hearts.js"></script>
+
+    <script src="js/main.js"></script>
+
+    <script src="js/music.js"></script>
+
+    <script>
+
+        const startBtn =
+            document.getElementById("startButton");
+
+
+        const music =
+            document.getElementById("bgMusic");
+
+
+
+        startBtn.addEventListener("click", () => {
+
+
+            music.play();
+
+
+            localStorage.setItem(
+                "musicPlaying",
+                "true"
+            );
+
+
+            window.location.href =
+                "album.html";
+
+
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lá Thư Gửi Anh ❤️</title>
+
+    <link rel="stylesheet" href="css/letter.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- ================= BACKGROUND ================= -->
+
+    <canvas id="starCanvas"></canvas>
+
+    <div id="heart-container"></div>
+
+    <div class="overlay"></div>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <h1>Một Lá Thư Dành Riêng Cho Anh</h1>
+
+        <h2>Đỗ Anh Hoàng ❤️</h2>
+
+    </header>
+
+    <!-- ================= LETTER ================= -->
+
+    <main class="letter-container">
+
+        <!-- Phong bì -->
+
+        <div id="envelope" class="envelope">
+
+            <div class="envelope-top"></div>
+
+            <div class="envelope-body"></div>
+
+            <button id="openLetter">
+
+                💌 Mở Lá Thư
+
+            </button>
+
+        </div>
+
+        <!-- Nội dung thư -->
+
+        <div id="letterPaper" class="letter-paper">
+
+            <div class="paper-header">
+
+                <h2>💌 Gửi Anh Hoàng ❤️</h2>
+
+            </div>
+
+            <div class="paper-body">
+
+                <div class="page">
+
+                    <div id="typingLeft" class="typing-text"></div>
+
+                </div>
+
+                <div class="page">
+
+                    <div id="typingRight" class="typing-text"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- ================= BUTTON ================= -->
+
+    <section class="next-section">
+
+        <button id="nextPage">
+
+            Tiếp Tục Hành Trình ❤️
+
+        </button>
+
+    </section>
+
+    <!-- ================= MUSIC ================= -->
+
+    <audio id="bgMusic" >
+
+        <source src="music/birthday.mp3" type="audio/mpeg">
+
+    </audio>
+
+    <!-- ================= SCRIPT ================= -->
+
+    <script src="js/particles.js"></script>
+
+    <script src="js/hearts.js"></script>
+    <script src="js/letter.js"></script>
+
+    <script src="js/music.js"></script>
+
+    <script>
+
+        document.getElementById("nextPage").addEventListener("click", () => {
+
+            document.body.classList.add("fade-out");
+
+            setTimeout(() => {
+
+                window.location.href = "timeline.html";
+
+            }, 700);
+
+        });
+
+    </script>
+
+</body>
+
+</html>

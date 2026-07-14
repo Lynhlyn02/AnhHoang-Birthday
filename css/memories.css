@@ -1,0 +1,586 @@
+/* ==========================================================
+   HAPPY BIRTHDAY
+   memories.css
+========================================================== */
+
+/*==============================
+    RESET
+==============================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    font-family: "Poppins", sans-serif;
+
+    background: #050816;
+
+    color: #fff;
+
+    overflow-x: hidden;
+
+    min-height: 100vh;
+
+}
+
+/*==============================
+    BACKGROUND
+==============================*/
+
+#starCanvas {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    z-index: -5;
+
+}
+
+#heart-container {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 2;
+
+}
+
+.floating-heart {
+
+    position: absolute;
+
+    bottom: -80px;
+
+    user-select: none;
+
+    pointer-events: none;
+
+    will-change: transform, opacity;
+
+    animation: floatHeart linear forwards;
+
+    filter:
+
+        drop-shadow(0 0 8px rgba(255, 105, 180, .8)) drop-shadow(0 0 18px rgba(255, 20, 147, .6));
+
+}
+
+
+.overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -4;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(circle at top,
+            rgba(255, 105, 180, .12),
+            transparent 55%),
+
+        linear-gradient(rgba(0, 0, 0, .15),
+            rgba(0, 0, 0, .65));
+
+}
+
+/*==============================
+    HEADER
+==============================*/
+
+header {
+
+    text-align: center;
+
+    padding: 60px 20px 30px;
+
+}
+
+header h1 {
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(55px, 7vw, 90px);
+
+    color: white;
+
+    text-shadow:
+
+        0 0 20px #fff,
+
+        0 0 40px hotpink,
+
+        0 0 80px deeppink;
+
+}
+
+header h2 {
+
+    margin-top: 10px;
+
+    font-size: clamp(24px, 3vw, 38px);
+
+    color: #ffd7ef;
+
+}
+
+header p {
+
+    width: min(700px, 90%);
+
+    margin: 20px auto 0;
+
+    color: #f2f2f2;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+}
+
+/*==============================
+    MEMORIES
+==============================*/
+
+.memories-container {
+
+    width: min(1400px, 92%);
+
+    margin: 50px auto;
+
+    display: grid;
+
+    grid-template-columns:
+
+        repeat(auto-fit, minmax(340px, 1fr));
+
+    gap: 35px;
+
+}
+
+/*==============================
+    CARD
+==============================*/
+
+.memory-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    background:
+
+        rgba(255, 255, 255, .08);
+
+    backdrop-filter: blur(18px);
+
+    border:
+
+        1px solid rgba(255, 255, 255, .18);
+
+    box-shadow:
+
+        0 20px 50px rgba(0, 0, 0, .35);
+
+    transition:
+
+        .45s;
+
+    transform-style: preserve-3d;
+
+}
+
+.memory-card:hover {
+
+    transform:
+
+        perspective(1200px) rotateX(6deg) rotateY(-6deg) translateY(-12px) scale(1.03);
+
+    box-shadow:
+
+        0 25px 60px rgba(255, 20, 147, .35),
+
+        0 0 30px rgba(255, 255, 255, .12);
+
+}
+
+/*==============================
+    IMAGE
+==============================*/
+
+.memory-image {
+
+    overflow: hidden;
+
+    height: 320px;
+
+}
+
+.memory-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    animation:
+
+        kenburns 18s ease-in-out infinite alternate;
+
+    transition: .4s;
+
+}
+
+.memory-card:hover img {
+
+    transform: scale(1.08);
+
+}
+
+/*==============================
+    CONTENT
+==============================*/
+
+.memory-content {
+
+    padding: 25px;
+
+}
+
+.memory-content h3 {
+
+    color: #ffd6f0;
+
+    font-size: 28px;
+
+    margin-bottom: 15px;
+
+}
+
+.memory-content p {
+
+    color: #f2f2f2;
+
+    line-height: 1.8;
+
+    font-size: 17px;
+
+}
+
+/*==============================
+    BUTTON
+==============================*/
+
+.next-section {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin: 60px 0 80px;
+
+}
+
+#nextPage {
+
+    padding: 18px 55px;
+
+    border: none;
+
+    border-radius: 60px;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    color: white;
+
+    background:
+
+        linear-gradient(135deg,
+            #ff4da6,
+            #ff80d8,
+            #ffc2e7);
+
+    box-shadow:
+
+        0 0 25px hotpink,
+
+        0 0 60px rgba(255, 105, 180, .35);
+
+    transition: .35s;
+
+}
+
+#nextPage:hover {
+
+    transform:
+
+        translateY(-5px) scale(1.05);
+
+}
+
+/*==============================
+    FADE OUT
+==============================*/
+
+.fade-out {
+
+    animation:
+
+        fadeOut .7s forwards;
+
+}
+
+@keyframes fadeOut {
+
+    to {
+
+        opacity: 0;
+
+        transform: scale(.98);
+
+    }
+
+}
+
+/*==============================
+    KEN BURNS
+==============================*/
+
+@keyframes kenburns {
+
+    0% {
+
+        transform:
+
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+
+            scale(1.08);
+
+    }
+
+    100% {
+
+        transform:
+
+            scale(1.15);
+
+    }
+
+}
+
+/*==============================
+    FLOAT
+==============================*/
+
+.memory-card {
+
+    opacity: 0;
+
+    transform: translateY(40px);
+
+    animation:
+
+        fadeUp 1s ease forwards;
+
+}
+
+.memory-card:nth-child(1) {
+
+    animation-delay: .2s;
+
+}
+
+.memory-card:nth-child(2) {
+
+    animation-delay: .5s;
+
+}
+
+.memory-card:nth-child(3) {
+
+    animation-delay: .8s;
+
+}
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+
+            translateY(50px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+
+            translateY(0);
+
+    }
+
+}
+
+/*==============================
+    RESPONSIVE
+==============================*/
+
+@media(max-width:992px) {
+
+    .memories-container {
+
+        grid-template-columns:
+
+            repeat(2, 1fr);
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    header {
+
+        padding-top: 40px;
+
+    }
+
+    header p {
+
+        font-size: 16px;
+
+    }
+
+    .memory-image {
+
+        height: 260px;
+
+    }
+
+    .memories-container {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+@media(max-width:480px) {
+
+    header h1 {
+
+        font-size: 48px;
+
+    }
+
+    header h2 {
+
+        font-size: 24px;
+
+    }
+
+    .memory-content {
+
+        padding: 18px;
+
+    }
+
+    .memory-content h3 {
+
+        font-size: 24px;
+
+    }
+
+    .memory-content p {
+
+        font-size: 15px;
+
+    }
+
+    #nextPage {
+
+        width: 90%;
+
+        font-size: 18px;
+
+    }
+
+}
+
+@keyframes floatHeart {
+
+    0% {
+
+        transform:
+            translateY(0) translateX(0) rotate(0deg) scale(.4);
+
+        opacity: 0;
+
+    }
+
+    10% {
+
+        opacity: 1;
+
+    }
+
+    40% {
+
+        transform:
+            translateY(-35vh) translateX(calc(var(--drift)/3)) rotate(calc(var(--rotate)/2)) scale(.8);
+
+    }
+
+    75% {
+
+        transform:
+            translateY(-75vh) translateX(calc(var(--drift)*0.8)) rotate(var(--rotate)) scale(1);
+
+    }
+
+    100% {
+
+        transform:
+            translateY(-120vh) translateX(var(--drift)) rotate(calc(var(--rotate)*2)) scale(1.25);
+
+        opacity: 0;
+
+    }
+
+}

@@ -1,0 +1,713 @@
+/* ==========================================================
+   HAPPY BIRTHDAY
+   letter.css
+========================================================== */
+
+/*==============================
+    RESET
+==============================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    font-family: "Poppins", sans-serif;
+
+    background: #040714;
+
+    color: #fff;
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+.floating-heart {
+
+    position: absolute;
+
+    bottom: -80px;
+
+    user-select: none;
+
+    pointer-events: none;
+
+    will-change: transform, opacity;
+
+    animation: floatHeart linear forwards;
+
+    filter:
+
+        drop-shadow(0 0 8px rgba(255, 105, 180, .8)) drop-shadow(0 0 18px rgba(255, 20, 147, .6));
+
+}
+
+
+/*==============================
+    BACKGROUND
+==============================*/
+
+#starCanvas {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    z-index: -5;
+
+}
+
+#heart-container {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 2;
+
+}
+
+.overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -4;
+
+    background:
+        radial-gradient(circle at top,
+            rgba(255, 105, 180, .15),
+            transparent 55%),
+
+        linear-gradient(rgba(0, 0, 0, .15),
+            rgba(0, 0, 0, .75));
+
+}
+
+/*==============================
+    HEADER
+==============================*/
+
+header {
+
+    text-align: center;
+
+    padding: 45px 20px 20px;
+
+}
+
+header h1 {
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(50px, 7vw, 90px);
+
+    text-shadow:
+
+        0 0 20px white,
+
+        0 0 40px hotpink,
+
+        0 0 80px deeppink;
+
+}
+
+header h2 {
+
+    margin-top: 12px;
+
+    color: #ffd7ef;
+
+    font-size: clamp(24px, 3vw, 36px);
+
+}
+
+/*==============================
+    CONTAINER
+==============================*/
+
+.letter-container {
+
+    flex: 1;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    position: relative;
+
+}
+
+/*==============================
+    LETTER PAPER
+==============================*/
+
+.letter-paper{
+
+    position:absolute;
+
+    width:min(1000px,92vw);
+
+    height:min(650px,78vh);
+
+    padding:30px;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+
+    display:flex;
+
+    flex-direction:column;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:translateY(60px) scale(.85);
+
+    transition:all .8s ease;
+
+}
+
+.letter-paper.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:translateY(0) scale(1);
+
+}
+
+/*==============================
+    ENVELOPE
+==============================*/
+
+.envelope{
+
+    position:relative;
+
+    width:360px;
+
+    height:240px;
+
+    transition:1s;
+
+}
+
+/* thân phong bì */
+
+.envelope-body {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(135deg,
+
+            #ffe3ef,
+
+            #ffc7dd);
+
+    border-radius: 12px;
+
+    box-shadow:
+
+        0 20px 50px rgba(0, 0, 0, .4);
+
+}
+
+/* nắp */
+
+.envelope-top {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 130px;
+
+    background:
+
+        linear-gradient(135deg,
+
+            #ff8dc8,
+
+            #ff4fa3);
+
+    clip-path:
+
+        polygon(0 0, 100% 0, 50% 100%);
+
+    transform-origin: top;
+
+    transition: 1s;
+
+    z-index: 5;
+
+}
+
+/*==============================
+    BUTTON
+==============================*/
+
+#openLetter {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 30px;
+
+    transform: translateX(-50%);
+
+    padding: 15px 40px;
+
+    border: none;
+
+    border-radius: 40px;
+
+    cursor: pointer;
+
+    background:
+
+        linear-gradient(135deg,
+
+            #ff4da6,
+
+            #ff89d5);
+
+    color: white;
+
+    font-size: 18px;
+
+    box-shadow:
+
+        0 0 25px hotpink;
+
+    transition: .3s;
+
+    z-index: 20;
+
+}
+
+#openLetter:hover {
+
+    transform:
+
+        translateX(-50%) scale(1.05);
+
+}
+
+/*==============================
+    LETTER PAPER
+==============================*/
+
+.paper-header{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+.paper-header h2{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:48px;
+
+    color:#ffb7dc;
+
+}
+
+.paper-body{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:30px;
+
+    height:100%;
+
+}
+
+.page{
+
+    background:
+
+    rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    overflow-y:auto;
+
+    box-shadow:
+
+    inset 0 0 20px rgba(255,255,255,.05);
+
+}
+
+/*==============================
+    NEXT
+==============================*/
+
+.next-section {
+
+    padding: 35px;
+
+}
+
+#nextPage {
+
+    padding: 18px 55px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-size: 20px;
+
+    background:
+
+        linear-gradient(135deg,
+
+            #ff4da6,
+
+            #ff80d8,
+
+            #ffd4ec);
+
+    box-shadow:
+
+        0 0 25px hotpink,
+
+        0 0 55px rgba(255, 20, 147, .35);
+
+    transition: .3s;
+
+}
+
+#nextPage:hover {
+
+    transform:
+
+        translateY(-5px) scale(1.05);
+
+}
+
+/*==============================
+    FADE
+==============================*/
+
+.fade-out {
+
+    animation:
+
+        fadeOut .7s forwards;
+
+}
+
+@keyframes fadeOut {
+
+    to {
+
+        opacity: 0;
+
+        transform: scale(.98);
+
+    }
+
+}
+
+@keyframes floatHeart {
+
+    0% {
+
+        transform:
+            translateY(0) translateX(0) rotate(0deg) scale(.4);
+
+        opacity: 0;
+
+    }
+
+    10% {
+
+        opacity: 1;
+
+    }
+
+    40% {
+
+        transform:
+            translateY(-35vh) translateX(calc(var(--drift)/3)) rotate(calc(var(--rotate)/2)) scale(.8);
+
+    }
+
+    75% {
+
+        transform:
+            translateY(-75vh) translateX(calc(var(--drift)*0.8)) rotate(var(--rotate)) scale(1);
+
+    }
+
+    100% {
+
+        transform:
+            translateY(-120vh) translateX(var(--drift)) rotate(calc(var(--rotate)*2)) scale(1.25);
+
+        opacity: 0;
+
+    }
+
+}
+
+/*==============================
+    RESPONSIVE
+==============================*/
+
+@media(max-width:768px) {
+
+    .envelope {
+
+        width: 300px;
+
+        height: 200px;
+
+    }
+
+    .letter-paper {
+
+        padding: 30px;
+
+    }
+
+    .typing-text {
+
+        font-size: 17px;
+
+    }
+
+}
+
+@media(max-width:480px) {
+
+    header h1 {
+
+        font-size: 46px;
+
+    }
+
+    header h2 {
+
+        font-size: 22px;
+
+    }
+
+    .envelope {
+
+        width: 260px;
+
+        height: 170px;
+
+    }
+
+    #openLetter {
+
+        font-size: 16px;
+
+        padding: 13px 30px;
+
+    }
+
+    .letter-paper {
+
+        padding: 22px;
+
+    }
+
+    .typing-text {
+
+        font-size: 15px;
+
+        line-height: 1.8;
+
+    }
+
+    #nextPage {
+
+        width: 90%;
+
+        font-size: 18px;
+
+    }
+
+}
+
+/*==============================
+    CURSOR
+==============================*/
+
+.cursor {
+
+    display: inline-block;
+
+    color: #ff5fa2;
+
+    animation: blink .8s infinite;
+
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+
+        opacity: 1;
+
+    }
+
+    50% {
+
+        opacity: 0;
+
+    }
+
+}
+
+/*=====================================
+    HANDWRITING EFFECT
+======================================*/
+
+.typing-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+    line-height: 2;
+
+}
+
+.line {
+
+    width: 0;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    opacity: 0;
+
+    border-right: 2px solid #ff8fc8;
+
+    color: #fff;
+
+    font-size: 20px;
+
+    font-family: "Great Vibes", cursive;
+
+    letter-spacing: 1px;
+
+}
+
+.line.show {
+
+    opacity: 1;
+
+    animation:
+
+        writing 3s steps(80, end) forwards,
+
+        cursor .8s infinite;
+
+}
+
+.line.finish {
+
+    border-right: none;
+
+}
+
+@keyframes writing {
+
+    from {
+
+        width: 0;
+
+    }
+
+    to {
+
+        width: 100%;
+
+    }
+
+}
+
+@keyframes cursor {
+
+    0%,
+    100% {
+
+        border-color: #ff8fc8;
+
+    }
+
+    50% {
+
+        border-color: transparent;
+
+    }
+
+}
