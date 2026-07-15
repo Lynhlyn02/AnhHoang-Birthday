@@ -4,14 +4,14 @@
 // =====================================
 
 
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
 
 
     const bgMusic =
-    document.getElementById("bgMusic");
+        document.getElementById("bgMusic");
 
 
-    if(!bgMusic) return;
+    if (!bgMusic) return;
 
 
 
@@ -24,12 +24,12 @@ document.addEventListener("DOMContentLoaded",()=>{
     // Lấy thời gian trước đó
 
     const savedTime =
-    localStorage.getItem("musicTime");
+        localStorage.getItem("musicTime");
 
 
 
     const musicStatus =
-    localStorage.getItem("musicPlaying");
+        localStorage.getItem("musicPlaying");
 
 
 
@@ -38,13 +38,13 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     bgMusic.addEventListener(
         "loadedmetadata",
-        ()=>{
+        () => {
 
 
-            if(savedTime){
+            if (savedTime) {
 
                 bgMusic.currentTime =
-                Number(savedTime);
+                    Number(savedTime);
 
             }
 
@@ -52,38 +52,51 @@ document.addEventListener("DOMContentLoaded",()=>{
         }
     );
 
+    // Khi bài hát kết thúc -> phát lại từ đầu
 
+    bgMusic.addEventListener("ended", () => {
 
+        // Quay về đầu bài
+        bgMusic.currentTime = 0;
+
+        // Cập nhật localStorage
+        localStorage.setItem("musicTime", "0");
+        localStorage.setItem("musicPlaying", "true");
+
+        // Phát lại
+        bgMusic.play().catch(() => { });
+
+    });
 
 
     // Hàm chạy nhạc
 
-    function startMusic(){
+    function startMusic() {
 
 
         bgMusic.play()
 
-        .then(()=>{
+            .then(() => {
 
 
-            localStorage.setItem(
-                "musicPlaying",
-                "true"
-            );
+                localStorage.setItem(
+                    "musicPlaying",
+                    "true"
+                );
 
 
-        })
+            })
 
 
-        .catch(()=>{
+            .catch(() => {
 
 
-            console.log(
-            "Chờ người dùng tương tác"
-            );
+                console.log(
+                    "Chờ người dùng tương tác"
+                );
 
 
-        });
+            });
 
 
     }
@@ -95,7 +108,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     // Nếu trang trước đang phát
 
-    if(musicStatus === "true"){
+    if (musicStatus === "true") {
 
 
         startMusic();
@@ -112,10 +125,10 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     document.addEventListener(
         "click",
-        ()=>{
+        () => {
 
 
-            if(bgMusic.paused){
+            if (bgMusic.paused) {
 
                 startMusic();
 
@@ -124,7 +137,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
         },
         {
-            once:true
+            once: true
         }
     );
 
@@ -137,7 +150,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     bgMusic.addEventListener(
         "timeupdate",
-        ()=>{
+        () => {
 
 
             localStorage.setItem(
@@ -159,7 +172,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     bgMusic.addEventListener(
         "play",
-        ()=>{
+        () => {
 
 
             localStorage.setItem(
@@ -185,7 +198,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     window.addEventListener(
         "beforeunload",
-        ()=>{
+        () => {
 
 
             localStorage.setItem(
