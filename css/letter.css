@@ -170,47 +170,52 @@ header h2 {
     LETTER PAPER
 ==============================*/
 
-.letter-paper{
+.letter-paper {
 
-    position:absolute;
+    position: absolute;
 
-    width:min(1000px,92vw);
+    width: min(900px, 92vw);
 
-    height:min(650px,78vh);
+    height: calc(100vh - 210px);
 
-    padding:30px;
+    max-height: 760px;
 
-    border-radius:25px;
+    min-height: 420px;
 
-    background:rgba(255,255,255,.08);
+    padding: clamp(18px, 2vw, 30px);
 
-    backdrop-filter:blur(20px);
+    border-radius: 25px;
 
-    border:1px solid rgba(255,255,255,.15);
+    background: rgba(255, 255, 255, .08);
 
-    box-shadow:0 20px 60px rgba(0,0,0,.45);
+    backdrop-filter: blur(20px);
 
-    display:flex;
+    border: 1px solid rgba(255, 255, 255, .15);
 
-    flex-direction:column;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .45);
 
-    opacity:0;
+    display: flex;
 
-    visibility:hidden;
+    flex-direction: column;
 
-    transform:translateY(60px) scale(.85);
+    overflow: hidden;
 
-    transition:all .8s ease;
+    opacity: 0;
 
+    visibility: hidden;
+
+    transform: translateY(60px) scale(.9);
+
+    transition: .8s;
 }
 
-.letter-paper.show{
+.letter-paper.show {
 
-    opacity:1;
+    opacity: 1;
 
-    visibility:visible;
+    visibility: visible;
 
-    transform:translateY(0) scale(1);
+    transform: translateY(0) scale(1);
 
 }
 
@@ -218,15 +223,15 @@ header h2 {
     ENVELOPE
 ==============================*/
 
-.envelope{
+.envelope {
 
-    position:relative;
+    position: relative;
 
-    width:360px;
+    width: 360px;
 
-    height:240px;
+    height: 240px;
 
-    transition:1s;
+    transition: 1s;
 
 }
 
@@ -344,57 +349,60 @@ header h2 {
     LETTER PAPER
 ==============================*/
 
-.paper-header{
+.paper-header {
 
-    text-align:center;
+    text-align: center;
 
-    margin-bottom:25px;
-
-}
-
-.paper-header h2{
-
-    font-family:"Great Vibes",cursive;
-
-    font-size:48px;
-
-    color:#ffb7dc;
+    margin-bottom: 25px;
 
 }
 
-.paper-body{
+.paper-header h2 {
 
-    display:flex;
+    font-family: "Great Vibes", cursive;
 
-    height:100%;
+    font-size: 48px;
 
-}
-
-.page{
-
-    width:100%;
-
-    height:100%;
-
-    overflow-y:auto;
-
-    padding:35px;
-
-    border-radius:20px;
-
-    background:rgba(255,255,255,.08);
-
-    box-shadow:
-        inset 0 0 20px rgba(255,255,255,.08);
+    color: #ffb7dc;
 
 }
 
-.typing-text{
+.paper-body {
 
-    font-size:clamp(18px,2vw,25px);
+    flex: 1;
 
-    line-height:2;
+    display: flex;
 
+    overflow: hidden;
+}
+
+.page {
+
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: clamp(18px, 2vw, 30px);
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, .08);
+
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .08);
+
+}
+
+.typing-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+    font-size: clamp(17px, 1.4vw, 23px);
+
+    line-height: 1.9;
 }
 
 /*==============================
@@ -644,21 +652,25 @@ header h2 {
 
 }
 
-.line{
+.line {
 
-    width:0;
+    width: 100%;
 
-    overflow:hidden;
+    opacity: 0;
 
-    white-space:nowrap;
+    overflow: hidden;
 
-    opacity:0;
+    white-space: pre-wrap;
 
-    border-right:2px solid #ff8fc8;
+    word-break: break-word;
 
-    font-family:"Great Vibes",cursive;
+    overflow-wrap: break-word;
 
-    font-size:clamp(22px,2vw,30px);
+    border-right: 2px solid #ff8fc8;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(20px, 2vw, 30px);
 
 }
 
@@ -668,7 +680,7 @@ header h2 {
 
     animation:
 
-        writing .7s steps(45,end) forwards,
+        writing .7s steps(45, end) forwards,
 
         cursor .6s infinite;
 
@@ -717,15 +729,15 @@ header h2 {
         TABLET
 =========================== */
 
-@media (max-width:992px){
+@media (max-width:992px) {
 
-    .letter-paper{
+    .letter-paper {
 
-        width:95%;
+        width: 95%;
 
-        height:78vh;
+        height: 78vh;
 
-        padding:25px;
+        padding: 25px;
 
     }
 
@@ -736,42 +748,42 @@ header h2 {
         MOBILE
 =========================== */
 
-@media (max-width:768px){
+@media (max-width:768px) {
 
-    body{
+    body {
 
-        overflow-y:auto;
-
-    }
-
-    header{
-
-        padding:30px 15px;
+        overflow-y: auto;
 
     }
 
-    .letter-paper{
+    header {
 
-        width:95%;
-
-        height:auto;
-
-        min-height:65vh;
-
-        padding:20px;
-
-        margin:20px auto;
-    }
-
-    .page{
-
-        padding:18px;
+        padding: 30px 15px;
 
     }
 
-    .paper-header h2{
+    .letter-paper {
 
-        font-size:34px;
+        width: 95%;
+
+        height: auto;
+
+        min-height: 65vh;
+
+        padding: 20px;
+
+        margin: 20px auto;
+    }
+
+    .page {
+
+        padding: 18px;
+
+    }
+
+    .paper-header h2 {
+
+        font-size: 34px;
 
     }
 
@@ -782,45 +794,45 @@ header h2 {
         SMALL PHONE
 =========================== */
 
-@media (max-width:480px){
+@media (max-width:480px) {
 
-    .letter-paper{
+    .letter-paper {
 
-        width:96%;
+        width: 96%;
 
-        padding:15px;
-
-    }
-
-    .page{
-
-        padding:15px;
+        padding: 15px;
 
     }
 
-    .typing-text{
+    .page {
 
-        font-size:18px;
-
-        line-height:1.8;
+        padding: 15px;
 
     }
 
-    .line{
+    .typing-text {
 
-        white-space:normal;
+        font-size: 18px;
 
-        width:auto;
-
-        border:none;
+        line-height: 1.8;
 
     }
 
-    #nextPage{
+    .line {
 
-        width:92%;
+        white-space: normal;
 
-        font-size:17px;
+        width: auto;
+
+        border: none;
+
+    }
+
+    #nextPage {
+
+        width: 92%;
+
+        font-size: 17px;
 
     }
 
