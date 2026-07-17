@@ -21,27 +21,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const letterLines = [
 
-        "Chúc mừng sinh nhật anh yêu ❤️",
+        "🎂 Chúc mừng sinh nhật tuổi 22 của anh yêu! ❤️",
 
-        "Hôm nay là một ngày thật đặc biệt đối với anh và cũng là một ngày rất ý nghĩa đối với em.",
+        "18/07 là một ngày thật đặc biệt, vì đó là ngày chàng trai em yêu nhất được sinh ra.",
 
-        "Cảm ơn anh vì đã xuất hiện trong cuộc đời em.",
+        "Cảm ơn anh đã đến, yêu thương và mang đến cho em thật nhiều hạnh phúc.",
 
-        "Cảm ơn anh vì luôn yêu thương, quan tâm và ở bên em mỗi ngày.",
+        "Ở bên anh, mỗi ngày đều trở nên ý nghĩa và tràn ngập những điều ấm áp.",
 
-        "Anh chính là món quà đẹp nhất mà cuộc sống đã dành tặng cho em.",
+        "Tuổi mới, em chỉ mong anh luôn mạnh khỏe, bình an và gặp thật nhiều may mắn.",
 
-        "Ở bên anh, em luôn cảm thấy bình yên, hạnh phúc và được yêu thương.",
+        "Chúc mọi ước mơ, dự định của anh đều thành hiện thực và nụ cười sẽ luôn ở trên môi.",
 
-        "Tuổi mới em chỉ mong anh luôn mạnh khỏe, vui vẻ và gặp thật nhiều may mắn.",
+        "Dù sau này có chuyện gì xảy ra, em vẫn mong chúng mình sẽ luôn nắm chặt tay nhau.",
 
-        "Chúc anh đạt được mọi ước mơ, mọi dự định và luôn giữ nụ cười trên môi.",
+        "Cảm ơn anh vì đã là món quà tuyệt vời nhất mà cuộc sống dành tặng cho em.",
 
-        "Hy vọng chúng ta sẽ luôn nắm tay nhau thật lâu, cùng nhau đi qua mọi chặng đường phía trước.",
+        "Yêu anh hôm nay, ngày mai và cả những ngày sau nữa. ❤️",
 
-        "Em yêu anh rất nhiều ❤️",
-
-        "Happy Birthday 🎂"
+        "Chúc mừng sinh nhật anh yêu! Happy Birthday! 🎉🎂❤️"
 
     ];
 

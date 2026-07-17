@@ -174,15 +174,15 @@ header h2 {
 
     position: absolute;
 
-    width: min(900px, 92vw);
+    width:min(860px,92vw);
 
-    height: calc(100vh - 210px);
+    height:min(620px,68vh);
 
-    max-height: 760px;
+    max-height: 600px;
 
-    min-height: 420px;
+    min-height: 350px;
 
-    padding: clamp(18px, 2vw, 30px);
+    padding: clamp(14px, 1.5vw, 24px);
 
     border-radius: 25px;
 
@@ -398,11 +398,12 @@ header h2 {
 
     flex-direction: column;
 
-    gap: 14px;
+    gap: 10px;
 
-    font-size: clamp(17px, 1.4vw, 23px);
+    font-size: clamp(14px, 1vw, 18px);
 
-    line-height: 1.9;
+    line-height: 1.7;
+
 }
 
 /*==============================
@@ -670,7 +671,11 @@ header h2 {
 
     font-family: "Great Vibes", cursive;
 
-    font-size: clamp(20px, 2vw, 30px);
+    font-size: clamp(14px, 1.2vw, 20px);
+
+    line-height: 1.7;
+
+    letter-spacing: .3px;
 
 }
 
@@ -787,6 +792,14 @@ header h2 {
 
     }
 
+    .line {
+
+        font-size: 16px;
+
+        line-height: 1.6;
+
+    }
+
 }
 
 
@@ -825,6 +838,10 @@ header h2 {
         width: auto;
 
         border: none;
+
+        font-size: 14px;
+
+        line-height: 1.6;
 
     }
 
