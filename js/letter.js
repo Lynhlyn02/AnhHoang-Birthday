@@ -9,8 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const envelopeTop = document.querySelector(".envelope-top");
     const paper = document.getElementById("letterPaper");
     const openBtn = document.getElementById("openLetter");
-    const leftBox = document.getElementById("typingLeft");
-    const rightBox = document.getElementById("typingRight");
+    const typingBox = document.getElementById("typingText");
     const nextBtn = document.getElementById("nextPage");
 
     // Ẩn nút tiếp tục
@@ -20,50 +19,27 @@ document.addEventListener("DOMContentLoaded", () => {
         nextBtn.style.transition = "0.8s";
     }
 
-    const leftLines = [
+    const letterLines = [
 
         "Chúc mừng sinh nhật anh yêu ❤️",
 
+        "Hôm nay là một ngày thật đặc biệt đối với anh và cũng là một ngày rất ý nghĩa đối với em.",
 
-        "Hôm nay là một ngày thật đặc biệt.",
+        "Cảm ơn anh vì đã xuất hiện trong cuộc đời em.",
 
+        "Cảm ơn anh vì luôn yêu thương, quan tâm và ở bên em mỗi ngày.",
 
-        "Cảm ơn anh vì đã luôn ở bên em.",
+        "Anh chính là món quà đẹp nhất mà cuộc sống đã dành tặng cho em.",
 
-        "Cảm ơn anh vì luôn yêu thương em.",
+        "Ở bên anh, em luôn cảm thấy bình yên, hạnh phúc và được yêu thương.",
 
+        "Tuổi mới em chỉ mong anh luôn mạnh khỏe, vui vẻ và gặp thật nhiều may mắn.",
 
-        "Anh là điều tuyệt vời",
+        "Chúc anh đạt được mọi ước mơ, mọi dự định và luôn giữ nụ cười trên môi.",
 
-        "mà cuộc sống đã mang đến.",
-
-
-        "Em luôn trân trọng",
-
-        "mọi khoảnh khắc của chúng ta."
-
-    ];
-
-    const rightLines = [
-
-        "Em mong tuổi mới",
-
-        "sẽ mang đến cho anh thật nhiều sức khỏe.",
-
-
-        "Thật nhiều thành công.",
-
-
-        "Thật nhiều niềm vui.",
-
-
-        "Hy vọng chúng ta",
-
-        "sẽ luôn nắm tay nhau đi thật xa.",
-
+        "Hy vọng chúng ta sẽ luôn nắm tay nhau thật lâu, cùng nhau đi qua mọi chặng đường phía trước.",
 
         "Em yêu anh rất nhiều ❤️",
-
 
         "Happy Birthday 🎂"
 
@@ -81,11 +57,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             box.appendChild(div);
 
-            await new Promise(r => setTimeout(r, 100));
+            await new Promise(r => setTimeout(r, 30));
 
             div.classList.add("show");
 
-            await new Promise(r => setTimeout(r, 2300));
+            await new Promise(r => setTimeout(r, 700));
 
             div.classList.add("finish");
 
@@ -123,9 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             paper.classList.add("show");
 
-            await write(leftBox, leftLines);
-
-            await write(rightBox, rightLines);
+            await write(typingBox, letterLines);
 
             nextBtn.style.opacity = "1";
 
