@@ -131,7 +131,7 @@ header {
 
     text-align: center;
 
-    padding: 70px 20px 40px;
+    padding: clamp(35px, 5vw, 70px) 20px 30px;
 
 }
 
@@ -509,12 +509,17 @@ header p {
 
     position: relative;
 
-    width: min(1300px, 92%);
+    width:min(1300px,94vw);
 
-    margin: 0 auto 120px;
+    margin:auto;
 
-    padding: 30px 0;
+    padding-inline:10px;
 
+}
+
+.timeline-image{
+
+    height:clamp(180px,30vw,340px);
 }
 
 /*==============================
@@ -1309,160 +1314,316 @@ header {
     RESPONSIVE
 ==========================================================*/
 
+/* ===========================================
+        DESKTOP 2K - PC
+=========================================== */
+
+@media (min-width:1600px) {
+
+    .timeline {
+        max-width: 1450px;
+    }
+
+    .timeline-image {
+        height: 420px;
+    }
+
+    .timeline-content h3 {
+        font-size: 34px;
+    }
+
+    .timeline-content p {
+        font-size: 19px;
+    }
+
+}
+
+
+/* ===========================================
+            LAPTOP
+=========================================== */
+
 @media (max-width:1200px) {
+
+    header {
+
+        padding: 60px 20px 35px;
+    }
 
     .timeline {
 
         width: 95%;
-
     }
 
     .timeline-image {
 
         height: 300px;
-
     }
 
 }
+
+
+/* ===========================================
+            TABLET
+=========================================== */
 
 @media (max-width:992px) {
 
-    .next-section {
-
-        margin-top: 50px;
-
-    }
-
-    #nextPage {
-
-        padding: 16px 48px;
-
-        font-size: 18px;
-
-    }
-
-}
-
-@media (max-width:768px) {
-
-    header {
-
-        padding: 50px 20px 30px;
-
-    }
-
     header h1 {
 
-        font-size: 54px;
-
+        font-size: 56px;
     }
 
     header h2 {
 
-        font-size: 26px;
-
+        font-size: 28px;
     }
 
     header p {
 
         font-size: 16px;
-
-        line-height: 1.8;
-
     }
 
-    .countdown-card {
+    .countdown {
 
-        padding: 25px;
-
+        gap: 16px;
     }
 
-    .timeline {
+    .time-box {
 
-        margin-bottom: 70px;
-
+        width: 95px;
+        height: 95px;
     }
 
-    .timeline-card {
+    .time-box span {
 
-        border-radius: 22px;
-
+        font-size: 28px;
     }
 
-    .timeline-image {
+    .timeline::before {
 
-        height: 230px;
-
+        left: 32px;
     }
 
-    #nextPage {
+    .timeline::after {
 
-        width: 85%;
+        left: 32px;
+    }
 
-        max-width: 340px;
+    .timeline-item {
 
+        width: 100%;
+
+        margin: 50px 0;
+
+        margin-left: 0;
+
+        padding-left: 80px !important;
+
+        padding-right: 0 !important;
+    }
+
+    .timeline-item.left {
+
+        justify-content: flex-start;
+    }
+
+    .timeline-item.left .timeline-dot,
+    .timeline-item.right .timeline-dot {
+
+        left: 20px;
     }
 
 }
 
-@media (max-width:480px) {
+
+/* ===========================================
+            MOBILE
+=========================================== */
+
+@media (max-width:768px) {
+
+    header {
+
+        padding: 40px 15px 25px;
+    }
 
     header h1 {
 
         font-size: 42px;
-
     }
 
     header h2 {
 
         font-size: 22px;
-
     }
 
     header p {
 
         font-size: 15px;
 
+        line-height: 1.7;
+    }
+
+    .countdown-card {
+
+        padding: 18px;
+    }
+
+    .countdown-card h3 {
+
+        font-size: 30px;
+    }
+
+    .countdown {
+
+        gap: 12px;
+    }
+
+    .time-box {
+
+        width: 72px;
+        height: 72px;
+
+        border-radius: 16px;
+    }
+
+    .time-box span {
+
+        font-size: 22px;
+    }
+
+    .time-box small {
+
+        font-size: 11px;
+    }
+
+    .timeline {
+
+        width: 95%;
+    }
+
+    .timeline::before {
+
+        left: 22px;
+    }
+
+    .timeline::after {
+
+        left: 22px;
+    }
+
+    .timeline-item {
+
+        padding-left: 60px !important;
+
+        margin: 35px 0;
+    }
+
+    .timeline-item .timeline-dot {
+
+        left: 10px;
+
+        width: 18px;
+        height: 18px;
+    }
+
+    .timeline-card {
+
+        border-radius: 18px;
+    }
+
+    .timeline-image {
+
+        height: 180px;
     }
 
     .timeline-content {
 
-        padding: 16px;
-
+        padding: 15px;
     }
 
     .timeline-content h3 {
 
         font-size: 20px;
-
     }
 
     .timeline-content p {
 
         font-size: 14px;
 
-    }
-
-    .timeline-image {
-
-        height: 190px;
-
-    }
-
-    .countdown {
-
-        gap: 10px;
-
+        line-height: 1.7;
     }
 
     #nextPage {
 
-        width: 92%;
+        width: 90%;
 
-        font-size: 17px;
+        max-width: 300px;
 
-        padding: 16px 25px;
+        padding: 15px;
 
+        font-size: 16px;
+    }
+
+}
+
+
+/* ===========================================
+        SMALL PHONE
+=========================================== */
+
+@media (max-width:400px) {
+
+    header h1 {
+
+        font-size: 34px;
+    }
+
+    header h2 {
+
+        font-size: 18px;
+    }
+
+    header p {
+
+        font-size: 14px;
+    }
+
+    .time-box {
+
+        width: 65px;
+        height: 65px;
+    }
+
+    .time-box span {
+
+        font-size: 20px;
+    }
+
+    .timeline-item {
+
+        padding-left: 52px !important;
+    }
+
+    .timeline-image {
+
+        height: 160px;
+    }
+
+    .timeline-content h3 {
+
+        font-size: 18px;
+    }
+
+    .timeline-content p {
+
+        font-size: 13px;
+    }
+
+    #nextPage {
+
+        width: 94%;
     }
 
 }
@@ -1501,31 +1662,31 @@ header {
 
 /* Timeline line progress */
 
-.timeline{
+.timeline {
 
-    --line-progress:0%;
+    --line-progress: 0%;
 
 }
 
-.timeline::after{
+.timeline::after {
 
-    content:"";
+    content: "";
 
-    position:absolute;
+    position: absolute;
 
-    left:50%;
+    left: 50%;
 
-    top:0;
+    top: 0;
 
-    transform:translateX(-50%);
+    transform: translateX(-50%);
 
-    width:6px;
+    width: 6px;
 
-    height:var(--line-progress);
+    height: var(--line-progress);
 
-    border-radius:30px;
+    border-radius: 30px;
 
-    background:white;
+    background: white;
 
     box-shadow:
 
@@ -1535,17 +1696,17 @@ header {
 
         0 0 80px deeppink;
 
-    transition:.25s;
+    transition: .25s;
 
 }
 
 /* Active dot */
 
-.timeline-dot.active{
+.timeline-dot.active {
 
-    transform:scale(1.4);
+    transform: scale(1.4);
 
-    background:white;
+    background: white;
 
     box-shadow:
 
@@ -1559,27 +1720,27 @@ header {
 
 /* Active card */
 
-.timeline-card.show{
+.timeline-card.show {
 
-    animation:cardShow .8s ease;
+    animation: cardShow .8s ease;
 
 }
 
-@keyframes cardShow{
+@keyframes cardShow {
 
-    from{
+    from {
 
-        transform:translateY(40px);
+        transform: translateY(40px);
 
-        opacity:0;
+        opacity: 0;
 
     }
 
-    to{
+    to {
 
-        transform:translateY(0);
+        transform: translateY(0);
 
-        opacity:1;
+        opacity: 1;
 
     }
 
@@ -1587,31 +1748,31 @@ header {
 
 /* Glow */
 
-.timeline-card.glow{
+.timeline-card.glow {
 
     box-shadow:
 
-        0 0 35px rgba(255,105,180,.5),
+        0 0 35px rgba(255, 105, 180, .5),
 
-        0 0 70px rgba(255,20,147,.35);
+        0 0 70px rgba(255, 20, 147, .35);
 
 }
 
 /* Sparkle */
 
-.sparkle{
+.sparkle {
 
-    position:fixed;
+    position: fixed;
 
-    width:4px;
+    width: 4px;
 
-    height:4px;
+    height: 4px;
 
-    border-radius:50%;
+    border-radius: 50%;
 
-    background:white;
+    background: white;
 
-    pointer-events:none;
+    pointer-events: none;
 
     box-shadow:
 
@@ -1619,27 +1780,27 @@ header {
 
         0 0 25px hotpink;
 
-    animation:sparkleFloat linear forwards;
+    animation: sparkleFloat linear forwards;
 
-    z-index:999;
+    z-index: 999;
 
 }
 
-@keyframes sparkleFloat{
+@keyframes sparkleFloat {
 
-    from{
+    from {
 
-        opacity:1;
+        opacity: 1;
 
-        transform:translateY(0) scale(.5);
+        transform: translateY(0) scale(.5);
 
     }
 
-    to{
+    to {
 
-        opacity:0;
+        opacity: 0;
 
-        transform:translateY(-120px) scale(2);
+        transform: translateY(-120px) scale(2);
 
     }
 
@@ -1647,29 +1808,29 @@ header {
 
 /* Button pulse */
 
-.pulse{
+.pulse {
 
-    animation:buttonPulse 1.2s;
+    animation: buttonPulse 1.2s;
 
 }
 
-@keyframes buttonPulse{
+@keyframes buttonPulse {
 
-    0%{
+    0% {
 
-        transform:scale(1);
-
-    }
-
-    50%{
-
-        transform:scale(1.08);
+        transform: scale(1);
 
     }
 
-    100%{
+    50% {
 
-        transform:scale(1);
+        transform: scale(1.08);
+
+    }
+
+    100% {
+
+        transform: scale(1);
 
     }
 
@@ -1677,8 +1838,8 @@ header {
 
 /* Pause animation */
 
-.pause-animation *{
+.pause-animation * {
 
-    animation-play-state:paused !important;
+    animation-play-state: paused !important;
 
 }
